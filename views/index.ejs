@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+
+<% if (locals.allPosts.length>0) { %>
+<%    for (var post of allPosts) { %>
+<%      var post_id = allPosts.indexOf(post); %>
+        <div>
+            <h2><%= post["title"] %></h2>
+            <p><%= post["body"].substr(0, 15) %>......<a href="/post/<%=post_id%>">Read More</a></p>
+        </div>
+<%    } %>
+<% } else { %>
+    <h2>Nothing Here!</h2>
+    <h4>Create Some Posts in the Compose Tab.</h4>
+<% } %>
+
+<%- include("partials/footer.ejs") %>
